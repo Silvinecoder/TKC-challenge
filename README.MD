@@ -9,3 +9,9 @@ docker-compose up --build
 ```bash
 Running on http://localhost:8080
 ```
+
+### 3. We use Jest to run the tests
+
+```bash
+npm run test
+```
