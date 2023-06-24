@@ -1,6 +1,7 @@
 // Imports
 const app = require('express')();
 const bodyParser = require('body-parser');
+const accelerator = require('./routes/accelerator');
 
 // Loading up nodes library for json
 const fs = require('fs');
@@ -9,10 +10,15 @@ const fs = require('fs');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// this is where we'll handle our various routes from
-const routes = require('./routes/routes.js')(app, fs);
-
-// finally, launch our server on port 8080.
+// Launch our server on port 8080.
 const server = app.listen(8080, () => {
   console.log('listening on port 8080', server.address().port);
 });
+
+// Sending data to the / endpoint to see if it's working
+app.get('/', (req, res) => {
+  res.send('docker is awesome');
+});
+
+// calling our routes accelerator function
+accelerator(app, fs);
