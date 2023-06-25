@@ -1,10 +1,9 @@
-const path = require('path');
 const Graph = require('node-dijkstra');
 const acceleratorData = require('./../db/acceleratorTable.json');
 
 const route = new Graph();
 
-// dijkstra algorithm to find the cheapest path
+// Dijkstra algorithm to find the cheapest path
 const dijkstra = (id, targetID) => {
   route.addNode('SOL', { PRX: 90, SIR: 80, RAN: 100, ARC: 500, ALD: 200 });
   route.addNode('PRX', { SOL: 90, SIR: 10, FOM: 10 });
