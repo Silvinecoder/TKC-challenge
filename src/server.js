@@ -1,7 +1,8 @@
 // Imports
 const app = require('express')();
 const bodyParser = require('body-parser');
-const accelerator = require('./routes/accelerator');
+const getAccelerator = require('./routes/accelerator');
+const getDistance = require('./routes/distance');
 
 // Loading up nodes library for json
 const fs = require('fs');
@@ -21,4 +22,7 @@ app.get('/', (req, res) => {
 });
 
 // calling our routes accelerator function
-accelerator(app, fs);
+getAccelerator(app, fs);
+
+// calling our routes distancefunction
+getDistance(app, fs);
