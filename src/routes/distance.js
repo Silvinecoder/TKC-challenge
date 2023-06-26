@@ -1,6 +1,6 @@
 const getDistance = (app) => {
   // Getting all of the accelerators
-  app.get('/:distance', (req, res) => {
+  app.get('/transport/:distance', (req, res) => {
     const numberOfPeople = req.query.passengers;
 
     // Distance that we want to do in total, minus the round trip of the accelerator
@@ -18,7 +18,7 @@ const getDistance = (app) => {
 
     const totalPrice = cheapestVehiclePrice + spaceFlightPrice;
 
-    res.send(totalPrice, vehicle);
+    res.send({ totalPrice, vehicle });
   });
 };
 
